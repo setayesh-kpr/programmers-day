@@ -2336,7 +2336,7 @@
         document.querySelectorAll("[data-e]").forEach(
           (x) =>
             (x.onclick = () => {
-              envbox.innerHTML = `<div class="title warn">${q("env")}</div><div class="value">${x.dataset.e === "cloud" ? "☁" : "..."}</div><div class=terminal>${x.dataset.e === "cloud" ? q("clouderr") : q("notmachine")}</div><img src="duck_happy.png" style="width:120px;height:auto;margin:14px auto;display:block">
+              envbox.innerHTML = `<div class="title warn">${q("env")}</div><div class="value">${x.dataset.e === "cloud" ? "☁" : "..."}</div><div class=terminal>${x.dataset.e === "cloud" ? q("clouderr") : q("notmachine")}</div><img src="duck_sad.png" style="width:120px;height:auto;margin:14px auto;display:block">
 <defs>
   <linearGradient id="chickBody" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#fff36a"/>
