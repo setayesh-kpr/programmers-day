@@ -965,243 +965,133 @@
       .code-sample::-webkit-scrollbar-corner {
         background: #06111d;
       }
-      /* ================================
-         BYTE//8 — MOBILE VIEWPORT FIX
-         Mobile only. Desktop untouched.
-      ================================ */
-      
-      @media (pointer: coarse) {
-      
-        html,
-        body {
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-        }
-      
-        .screen {
-          width: 100%;
-          height: 100%;
-          padding: 12px;
-          overflow: hidden;
-          align-items: flex-start;   /* برای صفحات کارتی */
-          padding-top: 6vh;
-        }
-      
-        /* Main 3D area — بالاتر و فشرده‌تر */
-        .core-space {
-          width: 100%;
-          height: 42dvh;
-          left: 50%;
-          top: 26%;                  /* ← خیلی بالاتر از ۴۳٪ */
-          transform: translate(-50%, -50%);
-        }
-      
-        .core {
-          --cube: min(42vw, 150px);
-          --half: calc(var(--cube) / 2);
-          --node: clamp(14px, 4.7vw, 20px);
-          width: var(--cube);
-          height: var(--cube);
-        }
-      
-        .corelabel {
-          font-size: clamp(16px, 5vw, 22px);
-        }
-      
-        /* متن و دکمه بالاتر */
-        .readout {
-          width: 100%;
-          left: 50%;
-          bottom: 22%;               /* ← بالاتر */
-          transform: translateX(-50%);
-          text-align: center;
-        }
-      
-        .big {
-          font-size: clamp(38px, 11vw, 64px);
-        }
-      
-        .controls {
-          position: absolute;
-          left: 50%;
-          bottom: 10px;
-          width: calc(100% - 24px);
-          transform: translateX(-50%);
-          font-size: 10px;
-          white-space: nowrap;
-          text-align: center;
-        }
-      
-        .laptop-control {
-          display: none !important;
-        }
-      
-        .mobile-control {
-          display: inline-flex !important;
-        }
-      
-        .touch-hint {
-          display: block;
-        }
-      
-        .card {
-          width: calc(100vw - 24px);
-          max-width: calc(100vw - 24px);
-          max-height: calc(100dvh - 24px);
-          box-sizing: border-box;
-        }
-      }
-    </style>
-    <style id="final-party-scrollbar-polish">
-      /* Final page panel scrollbar — blue BYTE//8 styling only */
-      .final-party .party-panel {
-        scrollbar-width: thin;
-        scrollbar-color: #70e7ff99 #06111d;
-      }
-      .final-party .party-panel::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      .final-party .party-panel::-webkit-scrollbar-track {
-        background: #06111d;
-        border-radius: 10px;
-        border: 1px solid #70e7ff18;
-      }
-      .final-party .party-panel::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #70e7ffcc, #70e7ff55);
-        border: 2px solid #06111d;
-        border-radius: 10px;
-        box-shadow: 0 0 8px #70e7ff55;
-      }
-      .final-party .party-panel::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #70e7ffff, #70e7ff88);
-      }
-      .final-party .party-panel::-webkit-scrollbar-corner {
-        background: #06111d;
-      }
-    </style>
-    <style id="duck-expression-polish">
-      /* Only the requested duck-expression variants. Base duck artwork stays unchanged. */
-      .advanced-duck.duck-surprised {
-        transform: scale(1.035) rotate(-1deg);
-        filter: drop-shadow(0 0 14px #70e7ff55);
-      }
-      .advanced-duck.duck-angry {
-        filter: saturate(1.5) hue-rotate(-7deg) drop-shadow(0 0 14px #ff617866);
-        transform: scale(1.035) rotate(0.8deg);
-      }
-      .advanced-duck.duck-surprised .duck-expression-overlay {
-        animation: duckPop 0.7s ease-out;
-      }
-      .advanced-duck.duck-angry .duck-expression-overlay {
-        animation: duckAngry 0.55s ease-out;
-      }
-      @keyframes duckPop {
-        0% {
-          transform: scale(0.72);
-          opacity: 0;
-        }
-        70% {
-          transform: scale(1.08);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-      @keyframes duckAngry {
-        0% {
-          transform: translateX(-2px) rotate(-2deg);
-        }
-        35% {
-          transform: translateX(2px) rotate(2deg);
-        }
-        70% {
-          transform: translateX(-1px) rotate(-1deg);
-        }
-        100% {
-          transform: none;
-        }
-      }
-      .success-check {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 18px auto 20px;
-        width: 92px;
-        height: 92px;
-        border: 2px solid #91ffb3aa;
-        border-radius: 50%;
-        background: radial-gradient(circle, #91ffb322, transparent 68%);
-        box-shadow:
-          0 0 28px #91ffb344,
-          inset 0 0 20px #91ffb318;
-        animation: checkPop 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-      }
-      .success-check span {
-        display: block;
-        font-size: 64px;
-        line-height: 1;
-        color: #91ffb3;
-        text-shadow: 0 0 18px #91ffb388;
-        transform: translateY(-3px);
-      }
-      @keyframes checkPop {
-        0% {
-          opacity: 0;
-          transform: scale(0.55) rotate(-12deg);
-        }
-        70% {
-          opacity: 1;
-          transform: scale(1.08) rotate(2deg);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1) rotate(0);
-        }
-      }
-    </style>
-    <style id="final-party-layout-fix">
-      .final-party {
-        overflow: hidden;
-        z-index: 99999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .final-party .party-panel {
-        position: relative;
-        z-index: 5;
-        max-height: 82vh;
-        overflow: auto;
-      }
-      .final-party .party-duck {
-        position: absolute !important;
-        z-index: 8 !important;
-        left: 50% !important;
-        bottom: 10px !important;
-        transform: translateX(-50%) !important;
-        width: min(250px, 42vw) !important;
-        height: auto !important;
-        pointer-events: none;
-      }
-      @media (max-width: 700px) {
-        .final-party {
-          align-items: flex-start;
-          padding-top: 10vh;
-        }
-        .final-party .party-panel {
-          width: min(92vw, 620px);
-          max-height: 72vh;
-          padding-bottom: 150px;
-        }
-        .final-party .party-duck {
-          width: min(210px, 55vw) !important;
-          bottom: 4px !important;
-        }
-      }
+/* ================================
+   BYTE//8 — MOBILE VIEWPORT FIX
+   Mobile only. Desktop untouched.
+================================ */
+
+@media (pointer: coarse) {
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden !important;
+  }
+
+  body {
+    position: fixed;
+    inset: 0;
+  }
+
+  .screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    /* کمی پایین‌تر */
+    padding: 6vh 12px 12px;
+  }
+
+  /* ================================
+     Main 3D area
+  ================================= */
+
+  .core-space {
+    width: 100%;
+    height: 42dvh;
+
+    left: 50%;
+    top: 26%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .core {
+    --cube: min(42vw, 150px);
+    --half: calc(var(--cube) / 2);
+    --node: clamp(14px, 4.7vw, 20px);
+
+    width: var(--cube);
+    height: var(--cube);
+  }
+
+  .corelabel {
+    font-size: clamp(16px, 5vw, 22px);
+  }
+
+  /* ================================
+     Readout
+  ================================= */
+
+  .readout {
+    width: calc(100% - 24px);
+    left: 50%;
+    bottom: 22%;
+    transform: translateX(-50%);
+
+    text-align: center;
+  }
+
+  .big {
+    font-size: clamp(38px, 11vw, 64px);
+  }
+
+  /* ================================
+     Controls
+  ================================= */
+
+  .controls {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+
+    width: calc(100% - 24px);
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .laptop-control {
+    display: none !important;
+  }
+
+  .mobile-control {
+    display: inline-flex !important;
+  }
+
+  .touch-hint {
+    display: block;
+  }
+
+  /* ================================
+     Cards
+  ================================= */
+
+  .card {
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+
+    max-height: calc(100dvh - 6vh - 24px);
+
+    box-sizing: border-box;
+  }
+}
     </style>
   </head>
   <body>
