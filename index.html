@@ -965,6 +965,93 @@
       .code-sample::-webkit-scrollbar-corner {
         background: #06111d;
       }
+      /* ================================
+         BYTE//8 — MOBILE VIEWPORT FIX
+         Mobile only. Desktop untouched.
+      ================================ */
+      
+      @media (pointer: coarse) {
+      
+        html,
+        body {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+      
+        .screen {
+          width: 100%;
+          height: 100%;
+          padding: 12px;
+          overflow: hidden;
+          align-items: flex-start;   /* برای صفحات کارتی */
+          padding-top: 6vh;
+        }
+      
+        /* Main 3D area — بالاتر و فشرده‌تر */
+        .core-space {
+          width: 100%;
+          height: 42dvh;
+          left: 50%;
+          top: 26%;                  /* ← خیلی بالاتر از ۴۳٪ */
+          transform: translate(-50%, -50%);
+        }
+      
+        .core {
+          --cube: min(42vw, 150px);
+          --half: calc(var(--cube) / 2);
+          --node: clamp(14px, 4.7vw, 20px);
+          width: var(--cube);
+          height: var(--cube);
+        }
+      
+        .corelabel {
+          font-size: clamp(16px, 5vw, 22px);
+        }
+      
+        /* متن و دکمه بالاتر */
+        .readout {
+          width: 100%;
+          left: 50%;
+          bottom: 22%;               /* ← بالاتر */
+          transform: translateX(-50%);
+          text-align: center;
+        }
+      
+        .big {
+          font-size: clamp(38px, 11vw, 64px);
+        }
+      
+        .controls {
+          position: absolute;
+          left: 50%;
+          bottom: 10px;
+          width: calc(100% - 24px);
+          transform: translateX(-50%);
+          font-size: 10px;
+          white-space: nowrap;
+          text-align: center;
+        }
+      
+        .laptop-control {
+          display: none !important;
+        }
+      
+        .mobile-control {
+          display: inline-flex !important;
+        }
+      
+        .touch-hint {
+          display: block;
+        }
+      
+        .card {
+          width: calc(100vw - 24px);
+          max-width: calc(100vw - 24px);
+          max-height: calc(100dvh - 24px);
+          box-sizing: border-box;
+        }
+      }
     </style>
     <style id="final-party-scrollbar-polish">
       /* Final page panel scrollbar — blue BYTE//8 styling only */
